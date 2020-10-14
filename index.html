@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-10-14 Wed 23:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Studying for CSI3105</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Sean" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Studying for CSI3105</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org864bc28">1. ./Introduction&#x2014;Part-1.pdf</a></li>
+<li><a href="#org69a0eb6">2. ./Introduction&#x2014;Part-2.pdf</a></li>
+<li><a href="#org0a5c7b4">3. ./Chapter-2&#x2014;Part-1&#x2014;MergeSort.pdf</a></li>
+<li><a href="#orgde58d7a">4. ./Chapter-2&#x2014;Part-2&#x2014;StrassenAlgorithm.pdf</a></li>
+<li><a href="#org7fb44a0">5. ./Chapter-2&#x2014;Part-3&#x2014;MasterTheorem.pdf</a></li>
+<li><a href="#orgb9b50aa">6. ./Chapter-2&#x2014;Part-4&#x2014;SelectionAlgorithm.pdf</a></li>
+<li><a href="#orgcd1cb7f">7. ./Chapter-3&#x2014;GraphsAlgorithms&#x2014;Part-1&#x2014;Intro.pdf</a></li>
+<li><a href="#orgf9dc88c">8. ./Chapter-3&#x2014;GraphsAlgorithms&#x2014;Part-2&#x2014;ExploringUndirectedGraphs.pdf</a></li>
+<li><a href="#org5982f64">9. ./Chapter-3&#x2014;GraphsAlgorithms&#x2014;Part-3&#x2014;ExploringDirectedGraphs.pdf</a></li>
+<li><a href="#org609690a">10. ./Chapter-3&#x2014;GraphsAlgorithms&#x2014;Part-4&#x2014;Dijkstra.pdf</a></li>
+<li><a href="#org8f47f6a">11. ./Chapter-3&#x2014;GraphsAlgorithms&#x2014;Part-5&#x2014;DijkstraCorrectness.pdf</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org864bc28" class="outline-2">
+<h2 id="org864bc28"><span class="section-number-2">1</span> <a href="./Introduction---Part-1.pdf">./Introduction---Part-1.pdf</a></h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>What does "design &amp; analsis of algos" mean?
+<ul class="org-ul">
+<li>Correctness</li>
+<li>Does it terminate?</li>
+<li>Efficiency</li>
+<li>Limits thereof</li>
+<li>Pseudocode, no programming</li>
+</ul></li>
+<li>Insertion sort
+<ul class="org-ul">
+<li>This is the one where we start at a position and then swap
+backwards until it fits into place</li>
+<li><code>~O(n^2)~</code> in the worst case</li>
+</ul></li>
+<li>Big O notation
+<ul class="org-ul">
+<li>Big Omega (which is the less than one)</li>
+<li>Big Theta (Which is the greater than one)</li>
+<li>What it means to be each one</li>
+</ul></li>
+<li>Barometer instruction
+<ul class="org-ul">
+<li>One which is executed at least as often as any other one</li>
+</ul></li>
+<li>Limit Criterion
+<ul class="org-ul">
+<li>lim(f(n)/g(n))
+<ul class="org-ul">
+<li>Goes to 0 if f = <code>O(g)</code></li>
+<li>Goes to infty if f = Omega(g)</li>
+<li>Goes to a real if f = Theta(g)</li>
+<li>If not exist, dunno</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org69a0eb6" class="outline-2">
+<h2 id="org69a0eb6"><span class="section-number-2">2</span> <a href="./Introduction---Part-2.pdf">./Introduction---Part-2.pdf</a></h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>The fibonacci numbers
+<ul class="org-ul">
+<li>Calculating the running time of fib(n)</li>
+<li>fib(n) is exponential, but fib2(n) is not, because two n-bit
+numbers can be added together in a linear number of bit operations</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0a5c7b4" class="outline-2">
+<h2 id="org0a5c7b4"><span class="section-number-2">3</span> <a href="./Chapter-2---Part-1---MergeSort.pdf">./Chapter-2---Part-1---MergeSort.pdf</a></h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Divide and conquer algorithms
+<ul class="org-ul">
+<li>Divide the problem</li>
+<li>Conquer each subproblem recursively</li>
+<li>Combine</li>
+</ul></li>
+<li>Merge sort
+<ul class="org-ul">
+<li>If size = 1: do nothing</li>
+<li>if size &gt;= 2: divide n numbers into two sequences, run merge
+sort twice, and merge it back into a sorted sequence</li>
+</ul></li>
+<li>Computing runtime of merge sort
+<ul class="org-ul">
+<li>T(n) = c if n=1, or 2T(n/2) + cn if n &gt;= 2</li>
+<li>Solving by unfolding
+<ul class="org-ul">
+<li>All steps are outlined in document</li>
+</ul></li>
+<li>We find T(n) &lt;= 2cnlog<sub>2</sub>(n)</li>
+<li>Therefore merge sort is Theta(n log<sub>2</sub>(n)) if n is a power of 2</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgde58d7a" class="outline-2">
+<h2 id="orgde58d7a"><span class="section-number-2">4</span> <a href="./Chapter-2---Part-2---StrassenAlgorithm.pdf">./Chapter-2---Part-2---StrassenAlgorithm.pdf</a></h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>What is matrix multiplication?</li>
+<li>Trivial algorithm: triple for loop</li>
+<li>Strassen algorithm</li>
+<li>How can we divide and conquer?
+<ul class="org-ul">
+<li>Split A, B (inputs) into four separate matrices</li>
+<li>Then compute the quadrants of C as products of these
+<ul class="org-ul">
+<li>We find no improvement.</li>
+</ul></li>
+<li>However the strassen algorithm derives various intermediate matrices
+and then finds C as a prodcut of these matrices
+<ul class="org-ul">
+<li>(P<sub>1</sub> through P<sub>7</sub>). Their calculations are in the notes.</li>
+<li>It then derives the quadrants of C to be products of P1 through P7</li>
+</ul></li>
+<li>After computing this through unfolding we then calculate that we
+have <code>O(nlog_2(7) where log2(7)</code> is approx 2.81</li>
+</ul></li>
+<li>There is also another algorithm by coppersmith and winograd, but
+that wasn't covered, it's very group theory heavy.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7fb44a0" class="outline-2">
+<h2 id="org7fb44a0"><span class="section-number-2">5</span> <a href="./Chapter-2---Part-3---MasterTheorem.pdf">./Chapter-2---Part-3---MasterTheorem.pdf</a></h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Master theorem
+<ul class="org-ul">
+<li>Let T be a function defined by parts. If
+<ul class="org-ul">
+<li>T(1) = 1</li>
+<li>T(n) = a . T(n / b) + n<sup>d</sup> where A &gt;= 1, b &gt; 1, d &gt;= 0
+<ul class="org-ul">
+<li>If d &gt; logb(a) then T(n) = <code>O(n^d)</code></li>
+<li>If d = logb(a) then T(n) = <code>O(n^d log(n))</code></li>
+<li>if d &lt; logb(a) then T(n) = <code>O(n^{logb(a)})</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>They then use the master theorem on merge sort and strassen and
+binary search to find results.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb9b50aa" class="outline-2">
+<h2 id="orgb9b50aa"><span class="section-number-2">6</span> <a href="./Chapter-2---Part-4---SelectionAlgorithm.pdf">./Chapter-2---Part-4---SelectionAlgorithm.pdf</a></h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Selection algo 
+<ul class="org-ul">
+<li>Find kth smallest number in array of n numbers</li>
+</ul></li>
+<li>Naive algo:
+<ul class="org-ul">
+<li>Sort S</li>
+<li>return the element at position k</li>
+<li>Runs in <code>O(n log n)</code></li>
+<li>Without sorting:
+<ul class="org-ul">
+<li>find pivot, go through array like quicksort, but instead of
+then sorting each sub-array, simply use the fact that it's
+less than k to continually go inwards.</li>
+<li>Quickselect
+<ul class="org-ul">
+<li>Worst case: <code>O(n^2)</code> if you pick bad pivots every time</li>
+<li>Average case: <code>O(n)</code> because on average a random pivot will be
+close to median</li>
+<li>Has a thing where they find a pivot</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcd1cb7f" class="outline-2">
+<h2 id="orgcd1cb7f"><span class="section-number-2">7</span> <a href="./Chapter-3---GraphsAlgorithms---Part-1---Intro.pdf">./Chapter-3---GraphsAlgorithms---Part-1---Intro.pdf</a></h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Graphs!
+<ul class="org-ul">
+<li>Set of vertices and set of edges <code>(V, E)</code></li>
+<li>Graph is <b>Undirected</b> if each edge is a 2-set</li>
+<li>Graph is <b>Directed</b> if each edge is an ordered 2-tuple
+<ul class="org-ul">
+<li>Facebook friends are undirected</li>
+<li>Web page links are directed</li>
+</ul></li>
+</ul></li>
+<li><b>Adjacent</b> edges <code>(u, v)</code>
+<ul class="org-ul">
+<li>if there is an edge between <code>u</code> and <code>v</code>.</li>
+</ul></li>
+<li><b>Incident</b> vertex v to an edge
+<ul class="org-ul">
+<li>If one of the vertexes of the edge is v</li>
+</ul></li>
+<li><b>degree</b> of <code>u \in V</code>
+<ul class="org-ul">
+<li>Equal to the num edges incident to u</li>
+</ul></li>
+<li><b>Outdegree</b> of <code>u \in V</code>
+<ul class="org-ul">
+<li>Equal to num of edges <code>e</code> such that <code>u</code> is the starting point of
+<code>e</code>.</li>
+</ul></li>
+<li><b>Indegree</b> of <code>u \in V</code>
+<ul class="org-ul">
+<li>Num of edges such that <code>u</code> is endpoint of edge</li>
+</ul></li>
+<li>Handshaking Lemma
+<ul class="org-ul">
+<li>Let <code>G = (V, E)</code>. Then
+<ul class="org-ul">
+<li>Sum(deg(u)) forall u = 2|E|
+<ul class="org-ul">
+<li>proof: each edge counted twice lel</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>How to store a graph
+<ul class="org-ul">
+<li>Adjacency matrix
+<ul class="org-ul">
+<li>In <code>O(1)</code> time we get whether two vertices are adjacent</li>
+<li>Uses n<sup>2</sup> space</li>
+<li>Finding all neighbours takes <code>O(n)</code> time</li>
+</ul></li>
+<li>Adjacency list
+<ul class="org-ul">
+<li>Uses |V| + |E| space</li>
+<li>Finding all neighbours of a vertex takes <code>O(1 + deg(u))</code> time
+(depeneding on implementation of list)</li>
+<li>Testing if (u, v) is an edge takes the same amount of time as
+finding all neighbours</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf9dc88c" class="outline-2">
+<h2 id="orgf9dc88c"><span class="section-number-2">8</span> <a href="./Chapter-3---GraphsAlgorithms---Part-2---ExploringUndirectedGraphs.pdf">./Chapter-3---GraphsAlgorithms---Part-2---ExploringUndirectedGraphs.pdf</a></h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Depth first search
+<ul class="org-ul">
+<li>Find all vertices that can be reached from <code>v \in V</code></li>
+<li>Tracing of function via lines on graph?</li>
+<li>It'll generate a trees, and all the other edges are back cycles and stuff</li>
+<li>Proves that DFS terminates</li>
+<li>Proves that it visits all vertices that are reachable from <code>v</code>
+<ul class="org-ul">
+<li>This proof is worth reading</li>
+</ul></li>
+</ul></li>
+<li>Finding connected components of G = (V, E)
+<ul class="org-ul">
+<li>We have some algo DFS</li>
+<li>Finding connected components is done by doing DFS on all
+unvisited nodes (which get filled out as one DFS call is done)</li>
+<li>And then a number gets incremented</li>
+</ul></li>
+<li>Runtime: 
+<ul class="org-ul">
+<li>First loop: <code>O(|V|)</code> time</li>
+<li>Second loop: 
+<ul class="org-ul">
+<li>explore(u) is called for each vertex u</li>
+<li>Time spent in exlore(u) is <code>O(1 + deg(u))</code></li>
+</ul></li>
+<li><code>O(|V| + sum(1 + deg(u)) forall u) = O(|V| + |V| + 2|E|)</code> =
+<code>O(|V| + |E|)</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5982f64" class="outline-2">
+<h2 id="org5982f64"><span class="section-number-2">9</span> <a href="./Chapter-3---GraphsAlgorithms---Part-3---ExploringDirectedGraphs.pdf">./Chapter-3---GraphsAlgorithms---Part-3---ExploringDirectedGraphs.pdf</a></h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>Topological ordering
+<ul class="org-ul">
+<li>Exists on a graph that is <b>directed</b> and <b>acyclic</b></li>
+<li>such that for edge (u, v) #(u) &lt; #(v)</li>
+<li>Algo is:
+<ul class="org-ul">
+<li>find vertex with indegree 0</li>
+<li>give u the num k</li>
+<li>remove u from G</li>
+<li>and so on and so forth</li>
+<li>there is an example in the notes</li>
+</ul></li>
+</ul></li>
+<li><b>Prenumbers</b> and <b>Postnumbers</b>
+<ul class="org-ul">
+<li><code>G = (V, E)</code> is directed.</li>
+<li><code>forall v \in V</code>, the following two numbers with respect to DFS:</li>
+<li><code>pre(v)</code> is the first time we visit <code>v</code></li>
+<li><code>post(v)</code> is the time when <code>explore(v)</code> is done
+<ul class="org-ul">
+<li>This uses a variable clock. Each time pre or postvisit number
+is assigned to a node, it gets incremented for next node</li>
+<li>There is an example in the notes</li>
+<li>Note: edges found in DFS are <b>Tree edges</b></li>
+<li>There is then a concept of <b>forward</b> and <b>back</b> edges
+<ul class="org-ul">
+<li>Edges going down the DFS tree are forward</li>
+<li>Going up -&gt; backwards</li>
+<li><b>Cross</b> edges go from one branch of the tree to another
+<ul class="org-ul">
+<li>Cross edges are neither forwards, backwards, nor tree
+edges. They are the remainder.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>To find the types of an edge:
+<ul class="org-ul">
+<li><b>Forwards</b>: 
+<ul class="org-ul">
+<li><code>(v, u)</code> is not a tree edge</li>
+<li><code>pre(v) &lt; pre(u) &lt; post(u) &lt; post(v)</code></li>
+</ul></li>
+<li><b>Back edge</b>:
+<ul class="org-ul">
+<li><code>(v, u)</code> not tree edge</li>
+<li><code>pre(u) &lt; pre(v) &lt; post(v) &lt; post(u)</code></li>
+</ul></li>
+<li><b>Cross edge</b>:
+<ul class="org-ul">
+<li><code>(v, u)</code> not tree edge</li>
+<li><code>pre(u) &lt; post(u) &lt; pre(v) &lt; post(v)</code></li>
+</ul></li>
+</ul></li>
+<li>To determine whether a directed graph has a directed cycle:
+<ul class="org-ul">
+<li>Graph has cycle iff DFS-forest has back-edge
+<ul class="org-ul">
+<li>Proof in notes</li>
+</ul></li>
+<li>If directed graph is cyclic:
+<ol class="org-ol">
+<li>run dfs including pre/post nums</li>
+<li>for each edge test if edge is back edge (via inequality up top)
+2.1 if yes then yes
+2.2 if no then no</li>
+<li>Runtime: <code>O(|V| + |E|)</code></li>
+</ol></li>
+<li>How to compute a topolotical ordering?
+<ol class="org-ol">
+<li>Run dfs</li>
+<li>Run bucket sort to sort vertices by postnumber</li>
+<li>obtain topological ordering from reverse sorted order of
+postnumbers</li>
+</ol></li>
+<li>Bucket sort takes <code>O(n) time, so runtime = O(|V| + |E|)</code>
+<ul class="org-ul">
+<li>Proof of correctness in notes</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org609690a" class="outline-2">
+<h2 id="org609690a"><span class="section-number-2">10</span> <a href="./Chapter-3---GraphsAlgorithms---Part-4---Dijkstra.pdf">./Chapter-3---GraphsAlgorithms---Part-4---Dijkstra.pdf</a></h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Dijstra's algo
+<ul class="org-ul">
+<li>input:
+<ul class="org-ul">
+<li>A directed graph <code>G = (V, E)</code> where each edge has a weight <code>wt(u,
+          v) &gt; 0</code></li>
+<li>a vertex <code>s</code> which is the source</li>
+</ul></li>
+<li>Output:
+<ul class="org-ul">
+<li>For each vertex: <code>\del(s, v) =</code> len of shortest path from s to v</li>
+</ul></li>
+<li>if all weights equal, this is easy, use BFS.</li>
+<li>algo:
+<ol class="org-ol">
+<li>for each vertex, maintain <code>d(v)</code>, the current shortest known path</li>
+<li>start out with <code>d(s)</code> = 0, and <code>d(!s) = \infty</code></li>
+<li>Loop:
+<ol class="org-ol">
+<li>Pick a vertex u for which <code>d(u) = \del(s, u)</code>.</li>
+<li>For each edge, <code>(u, v)</code>, <code>d(v) = min{d(v), d(u) + wt(u, v)}</code>
+<ul class="org-ul">
+<li>But how to find u?
+<ul class="org-ul">
+<li>Maintain <code>S \subset V</code> such that for all <code>v \in S</code>:</li>
+<li><code>d(v) = \del(s, v),</code> (i.e. we know <code>\del(s, v)</code>)</li>
+</ul></li>
+</ul></li>
+</ol></li>
+</ol></li>
+<li>Algo runthrough done in notes</li>
+<li>Store the set of nodes to visit in a min-heap
+<ul class="org-ul">
+<li>Initialization <code>O(n)</code></li>
+<li>One iteration:
+<ol class="org-ol">
+<li>find <code>u</code> and delete it from <code>Q</code>.
+<ul class="org-ul">
+<li>O(log(n)) time</li>
+</ul></li>
+<li>For each edge, update d(v):
+<ul class="org-ul">
+<li>decrease<sub>key</sub> : O(log(n)) time</li>
+</ul></li>
+</ol></li>
+<li>Time total for iteration
+<ul class="org-ul">
+<li><code>O(log(n)) + O(outdegree(u) * log(n))</code></li>
+</ul></li>
+<li>After some calculations, total runtime is <code>O((m + n) log(n))</code>
+<ul class="org-ul">
+<li>Note using fib heap to store Q we could do O(n log n + m time)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8f47f6a" class="outline-2">
+<h2 id="org8f47f6a"><span class="section-number-2">11</span> <a href="./Chapter-3---GraphsAlgorithms---Part-5---DijkstraCorrectness.pdf">./Chapter-3---GraphsAlgorithms---Part-5---DijkstraCorrectness.pdf</a></h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>You know the drill, correctness proof for dijkstra's
+<ul class="org-ul">
+<li><p>
+We say that a vertex <code>v</code> is special if all vertices on that path
+are in <code>S</code> (except <code>v</code>).
+</p>
+<ul class="org-ul">
+<li>We prove by induction that if <code>u \in S</code> then <code>d(u)</code> is shortest</li>
+</ul>
+<p>
+path from <code>s</code> to <code>u</code>.
+</p>
+<ul class="org-ul">
+<li>If it is not, then it is the shortest "special path" from <code>s</code>
+to <code>u</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Sean</p>
+<p class="date">Created: 2020-10-14 Wed 23:43</p>
+</div>
+</body>
+</html>

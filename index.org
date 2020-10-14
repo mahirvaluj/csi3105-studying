@@ -1,0 +1,236 @@
+#+title: Studying for CSI3105
+* [[./Introduction---Part-1.pdf]]
+  - What does "design & analsis of algos" mean?
+    - Correctness
+    - Does it terminate?
+    - Efficiency
+    - Limits thereof
+    - Pseudocode, no programming
+  - Insertion sort
+    - This is the one where we start at a position and then swap
+      backwards until it fits into place
+    - ~~O(n^2)~~ in the worst case
+  - Big O notation
+    - Big Omega (which is the less than one)
+    - Big Theta (Which is the greater than one)
+    - What it means to be each one
+  - Barometer instruction
+    - One which is executed at least as often as any other one
+  - Limit Criterion
+    - lim(f(n)/g(n))
+      - Goes to 0 if f = ~O(g)~
+      - Goes to infty if f = Omega(g)
+      - Goes to a real if f = Theta(g)
+      - If not exist, dunno
+       
+* [[./Introduction---Part-2.pdf]]
+  - The fibonacci numbers
+    - Calculating the running time of fib(n)
+    - fib(n) is exponential, but fib2(n) is not, because two n-bit
+      numbers can be added together in a linear number of bit operations
+
+* [[./Chapter-2---Part-1---MergeSort.pdf]]
+  - Divide and conquer algorithms
+    - Divide the problem
+    - Conquer each subproblem recursively
+    - Combine
+  - Merge sort
+    - If size = 1: do nothing
+    - if size >= 2: divide n numbers into two sequences, run merge
+      sort twice, and merge it back into a sorted sequence
+  - Computing runtime of merge sort
+    - T(n) = c if n=1, or 2T(n/2) + cn if n >= 2
+    - Solving by unfolding
+      - All steps are outlined in document
+    - We find T(n) <= 2cnlog_2(n)
+    - Therefore merge sort is Theta(n log_2(n)) if n is a power of 2
+
+* [[./Chapter-2---Part-2---StrassenAlgorithm.pdf]]
+  - What is matrix multiplication?
+  - Trivial algorithm: triple for loop
+  - Strassen algorithm
+  - How can we divide and conquer?
+    - Split A, B (inputs) into four separate matrices
+    - Then compute the quadrants of C as products of these
+      - We find no improvement.
+    - However the strassen algorithm derives various intermediate matrices
+      and then finds C as a prodcut of these matrices
+      - (P_1 through P_7). Their calculations are in the notes.
+      - It then derives the quadrants of C to be products of P1 through P7
+    - After computing this through unfolding we then calculate that we
+      have ~O(nlog_2(7) where log2(7)~ is approx 2.81
+  - There is also another algorithm by coppersmith and winograd, but
+    that wasn't covered, it's very group theory heavy.
+
+* [[./Chapter-2---Part-3---MasterTheorem.pdf]]
+  - Master theorem
+    - Let T be a function defined by parts. If
+      - T(1) = 1
+      - T(n) = a . T(n / b) + n^d where A >= 1, b > 1, d >= 0
+        - If d > logb(a) then T(n) = ~O(n^d)~
+        - If d = logb(a) then T(n) = ~O(n^d log(n))~
+        - if d < logb(a) then T(n) = ~O(n^{logb(a)})~
+  - They then use the master theorem on merge sort and strassen and
+    binary search to find results.
+
+* [[./Chapter-2---Part-4---SelectionAlgorithm.pdf]]
+  - Selection algo 
+    - Find kth smallest number in array of n numbers
+  - Naive algo:
+    - Sort S
+    - return the element at position k
+    - Runs in ~O(n log n)~
+    - Without sorting:
+      - find pivot, go through array like quicksort, but instead of
+        then sorting each sub-array, simply use the fact that it's
+        less than k to continually go inwards.
+      - Quickselect
+        - Worst case: ~O(n^2)~ if you pick bad pivots every time
+        - Average case: ~O(n)~ because on average a random pivot will be
+          close to median
+        - Has a thing where they find a pivot
+
+* [[./Chapter-3---GraphsAlgorithms---Part-1---Intro.pdf]]
+  - Graphs!
+    - Set of vertices and set of edges ~(V, E)~
+    - Graph is *Undirected* if each edge is a 2-set
+    - Graph is *Directed* if each edge is an ordered 2-tuple
+      - Facebook friends are undirected
+      - Web page links are directed
+  - *Adjacent* edges ~(u, v)~
+    - if there is an edge between ~u~ and ~v~.
+  - *Incident* vertex v to an edge
+    - If one of the vertexes of the edge is v
+  - *degree* of ~u \in V~
+    - Equal to the num edges incident to u
+  - *Outdegree* of ~u \in V~
+    - Equal to num of edges ~e~ such that ~u~ is the starting point of
+      ~e~.
+  - *Indegree* of ~u \in V~
+    - Num of edges such that ~u~ is endpoint of edge
+  - Handshaking Lemma
+    - Let ~G = (V, E)~. Then
+      - Sum(deg(u)) forall u = 2|E|
+        - proof: each edge counted twice lel
+  - How to store a graph
+    - Adjacency matrix
+      - In ~O(1)~ time we get whether two vertices are adjacent
+      - Uses n^2 space
+      - Finding all neighbours takes ~O(n)~ time
+    - Adjacency list
+      - Uses |V| + |E| space
+      - Finding all neighbours of a vertex takes ~O(1 + deg(u))~ time
+        (depeneding on implementation of list)
+      - Testing if (u, v) is an edge takes the same amount of time as
+        finding all neighbours
+
+* [[./Chapter-3---GraphsAlgorithms---Part-2---ExploringUndirectedGraphs.pdf]]
+  - Depth first search
+    - Find all vertices that can be reached from ~v \in V~
+    - Tracing of function via lines on graph?
+    - It'll generate a trees, and all the other edges are back cycles and stuff
+    - Proves that DFS terminates
+    - Proves that it visits all vertices that are reachable from ~v~
+      - This proof is worth reading
+  - Finding connected components of G = (V, E)
+    - We have some algo DFS
+    - Finding connected components is done by doing DFS on all
+      unvisited nodes (which get filled out as one DFS call is done)
+    - And then a number gets incremented
+  - Runtime: 
+    - First loop: ~O(|V|)~ time
+    - Second loop: 
+      - explore(u) is called for each vertex u
+      - Time spent in exlore(u) is ~O(1 + deg(u))~
+    - ~O(|V| + sum(1 + deg(u)) forall u) = O(|V| + |V| + 2|E|)~ =
+      ~O(|V| + |E|)~
+* [[./Chapter-3---GraphsAlgorithms---Part-3---ExploringDirectedGraphs.pdf]]
+  - Topological ordering
+    - Exists on a graph that is *directed* and *acyclic*
+    - such that for edge (u, v) #(u) < #(v)
+    - Algo is:
+      - find vertex with indegree 0
+      - give u the num k
+      - remove u from G
+      - and so on and so forth
+      - there is an example in the notes
+  - *Prenumbers* and *Postnumbers*
+    - ~G = (V, E)~ is directed.
+    - ~forall v \in V~, the following two numbers with respect to DFS:
+    - ~pre(v)~ is the first time we visit ~v~
+    - ~post(v)~ is the time when ~explore(v)~ is done
+      - This uses a variable clock. Each time pre or postvisit number
+        is assigned to a node, it gets incremented for next node
+      - There is an example in the notes
+      - Note: edges found in DFS are *Tree edges*
+      - There is then a concept of *forward* and *back* edges
+        - Edges going down the DFS tree are forward 
+        - Going up -> backwards
+        - *Cross* edges go from one branch of the tree to another
+          - Cross edges are neither forwards, backwards, nor tree
+            edges. They are the remainder.
+  - To find the types of an edge:
+    - *Forwards*: 
+      - ~(v, u)~ is not a tree edge
+      - ~pre(v) < pre(u) < post(u) < post(v)~
+    - *Back edge*:
+      - ~(v, u)~ not tree edge
+      - ~pre(u) < pre(v) < post(v) < post(u)~
+    - *Cross edge*:
+      - ~(v, u)~ not tree edge
+      - ~pre(u) < post(u) < pre(v) < post(v)~
+  - To determine whether a directed graph has a directed cycle:
+    - Graph has cycle iff DFS-forest has back-edge
+      - Proof in notes
+    - If directed graph is cyclic:
+      1. run dfs including pre/post nums
+      2. for each edge test if edge is back edge (via inequality up top)
+        2.1 if yes then yes
+        2.2 if no then no
+      3. Runtime: ~O(|V| + |E|)~
+    - How to compute a topolotical ordering?
+      1. Run dfs 
+      2. Run bucket sort to sort vertices by postnumber
+      3. obtain topological ordering from reverse sorted order of
+         postnumbers
+    - Bucket sort takes ~O(n) time, so runtime = O(|V| + |E|)~
+      - Proof of correctness in notes
+          
+* [[./Chapter-3---GraphsAlgorithms---Part-4---Dijkstra.pdf]]
+  - Dijstra's algo
+    - input:
+      - A directed graph ~G = (V, E)~ where each edge has a weight ~wt(u,
+          v) > 0~
+      - a vertex ~s~ which is the source
+    - Output:
+      - For each vertex: ~\del(s, v) =~ len of shortest path from s to v
+    - if all weights equal, this is easy, use BFS.
+    - algo:
+      1. for each vertex, maintain ~d(v)~, the current shortest known path
+      2. start out with ~d(s)~ = 0, and ~d(!s) = \infty~
+      3. Loop:
+         1. Pick a vertex u for which ~d(u) = \del(s, u)~.
+         2. For each edge, ~(u, v)~, ~d(v) = min{d(v), d(u) + wt(u, v)}~
+            - But how to find u?
+              - Maintain ~S \subset V~ such that for all ~v \in S~:
+              - ~d(v) = \del(s, v),~ (i.e. we know ~\del(s, v)~)
+    - Algo runthrough done in notes
+    - Store the set of nodes to visit in a min-heap
+      - Initialization ~O(n)~
+      - One iteration:
+        1. find ~u~ and delete it from ~Q~.
+           - O(log(n)) time
+        2. For each edge, update d(v):
+           - decrease_key : O(log(n)) time
+      - Time total for iteration
+        - ~O(log(n)) + O(outdegree(u) * log(n))~
+      - After some calculations, total runtime is ~O((m + n) log(n))~
+        - Note using fib heap to store Q we could do O(n log n + m time)
+* [[./Chapter-3---GraphsAlgorithms---Part-5---DijkstraCorrectness.pdf]]
+  - You know the drill, correctness proof for dijkstra's
+    - We say that a vertex ~v~ is special if all vertices on that path
+      are in ~S~ (except ~v~).
+      - We prove by induction that if ~u \in S~ then ~d(u)~ is shortest
+      path from ~s~ to ~u~.
+      - If it is not, then it is the shortest "special path" from ~s~
+        to ~u~

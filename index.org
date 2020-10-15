@@ -1,4 +1,9 @@
 #+title: Studying for CSI3105
+
+Note, I recommend cloning [[https://github.com/mahirvaluj/csi3105-studying][the repo]] for this and opening the org file
+in emacs, because then the links can be opened inside emacs, it's more
+clean. 
+
 * [[./Introduction---Part-1.pdf]]
   - What does "design & analsis of algos" mean?
     - Correctness

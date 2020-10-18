@@ -230,7 +230,7 @@ clean.
       - Time total for iteration
         - ~O(log(n)) + O(outdegree(u) * log(n))~
       - After some calculations, total runtime is ~O((m + n) log(n))~
-        - Note using fib heap to store Q we could do O(n log n + m time)
+        - Note using Fibonacci heap to store Q we could do O(n log n + m time)
 * [[./Chapter-3---GraphsAlgorithms---Part-5---DijkstraCorrectness.pdf]]
   - You know the drill, correctness proof for dijkstra's
     - We say that a vertex ~v~ is special if all vertices on that path

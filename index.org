@@ -239,3 +239,136 @@ clean.
       path from ~s~ to ~u~.
       - If it is not, then it is the shortest "special path" from ~s~
         to ~u~
+
+* [[./Chapter-4---GreedyAlgorithms---Part-3.1---MST.pdf]]
+  - Sidetrack into Union-Find data structures, also known as
+    disjoint-set data structures:
+  - It's just a data strucutre of sets that have two operations:
+  - Stored as a set of linked lists with the head containing the name,
+    and each element containing a pointer to the head of their list
+    - ~find(x)~ which returns the set in which is contained ~x~
+      - takes ~O(1)~ time because there is a pointer to the head 
+    - ~union(a, b, c)~ which takes three sets and modifies ~c = a \cup
+      b, and a = b = nullset~
+      - a union op takes ~O(size(b))~ time, because of setting
+        pointers to change the head of the list
+        - could also take ~min{map(size, a,b)}~ time by storing the
+          size the head of the list
+      - Time for ~n - 1~ union operations is ~O(n log n)~
+        - Because doing unions 'doubles (this is purely intuitive, it
+          doesn't actually double)' the size of a set, you change the
+          pointer for each element on average log_2(n) times
+
+* [[./Chapter-4---GreedyAlgorithms---Part-3.2---Kruskal.pdf]]
+  - Algorithm to find MST
+    - Maintain a forest. In each step, add an edge of minimum weight
+      that doesn't create a cycle.
+    - One iteration combines two trees using an edge of minimum weight
+    - Store the edges by weight
+  - input: ~G = V,E~, where ~V = {x_1, x_2, ...}~ and ~m = |E|~ and ~n = |V|~.
+  - output: A minimum spanning tree of ~G~.
+  - Algorithm:
+    - Sort the edges by merge sort
+    - ~for i = 1 to n do~
+      - ~V_i = {xi}~ [union-find data structure representation]
+    - ~T = nullset~
+    - ~for k = 1 to m do~
+      - ~(u_k, v_k) = e_k~
+      - ~u_k \in V_i~ (here, i and j are speshul)
+      - ~v_k \in V_j~
+      - ~if i != j~
+        - ~V_i = V_i \cup V_j~
+        - ~V_j = nullset~
+        - ~T = T \cup {{u_k, v_k}}~
+    - Return ~T~
+    - runtime:
+      - Sorting: ~O(m log m) = O(m log n)~
+      - First for: ~O(n)~
+      - Second for:
+        - T is in linked list, and this takes ~O(n)~.
+        - Storing the sets in the union-find data structure means that
+          we know the runtime if we do
+        - 2m find operations and n - 1 union operations:
+          - ~O(n) + O(m + n log n)~ tim
+      - Total is:
+        - ~O(m log n) + O(n) + O(m + n log n) = O(m log n)~
+
+* [[./Chapter-4---GreedyAlgorithms---Part-3.3---Prim.pdf]]
+  - Prim Algorithm
+  - This one is a lot easier intuitively, because it's more obvious
+    that it's correct.
+  - Start with a set of edge ~u \in ~A~, and extend ~A~ with a minimum
+    edge from an element of ~A~ to ~G = V \ A~, and add the end of
+    that edge to ~A~.
+  - Repeat until ~A = G~
+  - Algorithm:
+  - input: ~G = (V, E)~
+    - ~r =~ some arbitrary vertex
+    - ~A = {r}~
+    - ~T = {}~
+    - while ~A != V~ do
+      - find some edge of minimum weight such that ~u \in A, v \in V \ A~
+      - add to ~A~, add to ~T~.
+    - return ~T~
+  - How do we find the edge? by brute force it is O(|E|). This is
+    obviously infeasible, as the runtime becomes O(|V|.|E|). However,
+    we can store this in a better way.
+  - For each vertex in ~G~, maintain ~minweight~ and ~closest~ 
+    - ~minweight:~ the minimum weight of any edge between that edge and a
+      vertex of ~A~.
+    - ~closest:~ vertex ~x~ in ~A~ for which ~wt(x, y)~ = ~minweight(y)~
+  - When we move something into ~A~, then also update the minweights
+    and closest of its neighbours in ~Q~.
+  - Algorithm (this one is a lot more complicated than before, I'll
+    write it in if I get a chance later but for now go check the last
+    page of this chapter):
+
+* [[./Chapter-5---Part-1---ShortestPathsAcyclic.pdf]]
+  - Dynamic programming! this is the stuff you know best.
+  - For some ~G = V, E~, directed, acyclic, where each edge has ~wt(u,
+    v) > 0~
+  - Topolotical sorting:
+    - Vertices are numbered such that for each edge ~(v_i, v_j)~, ~i < j~.
+  - Let ~s = v_1~, ~t = v_n~. 
+  - how to compute shortest path from ~s~ to ~t~?
+  - Can we do better than dijkstras, using the topological sort? Yes,
+    because we can compute the problem as we go. 
+  - We know that the shortest path from s to t is equal to the minimum
+    from all the nodes connected to t + the path from the start to any
+    of these nodes
+  - If we compute the distances ~d(v_1) to d(v_n)~ beforehand (where
+    d(v_x) is the distance from v_0 to it) [like the start node, s],
+    then we can solve this in O(|V| + |E|) because you do a linear
+    search at each node. 
+
+* [[./Chapter-5---Part-2---MatrixChainMultiplication.pdf]]
+  - honestly these notes are pretty terse, so just read them if you
+    have anything on optimal matrix multiplication
+
+* [[./Chapter-5---Part-3---LCS.pdf]]
+  - Longest common sequence
+  - Give two sequences, what is the longest common sequence?
+  - create a matrix such that ~c(i,j)~ is equal to ~LCS(x[..i],
+    y[..j])~, like what you did for that number partitioning problem
+    in foobar.
+
+* [[./Chapter-5---Part-4---GeneralStructure.pdf]]
+  - This one doesn't actually have any info, just that if you want to
+    solve a problem using dynamic programming, create a recurrence
+    relation on the problem and then cache your results and solve it
+    bottom-up
+
+* [[./Chapter-5---Part-5---AllPairsShortestPath.pdf]]
+  - All pairs shortest paths
+  - Let ~G = V, E~ be a directed graph, where ~V = [1..n]~, and each
+    edge is greater than 0.
+  - For all i and j, compute the weight of a shortest path in ~G~ from
+    i to j, which I'll call d(i,j) [it's actually \delta_G(i,j), but
+    that's cumbersome]
+  - Consider the shortest path from i to j, if the path has an
+    interior vertex, it's the path from one node to another, and this
+    can be framed dynamically
+
+
+
+* [[./Chapter-5---Part-6---FinalRemark.pdf]]

@@ -240,7 +240,47 @@ clean.
       - If it is not, then it is the shortest "special path" from ~s~
         to ~u~
 
-* [[./Chapter-4---GreedyAlgorithms---Part-3.1---MST.pdf]]
+* [[Chapter-4---GreedyAlgorithms---Part-1---MakingChange.pdf]]
+  - Greedy algorithms arrives at a solution by making the best choice
+    it can at any moment, and hope that locally-optimal solution leads
+    to a global optima
+  - Example: determining the amount of change you can get [via the
+    obvious algorithm, modulo and remainders]
+
+* [[Chapter-4---GreedyAlgorithms---Part-2---Knapsack.pdf]]
+  - The [0,1] knapsack problem
+    - given:
+      - ~n~ objects such that object ~i (1 <= i <= n)~ has a positive
+        value ~v_i~ and a positive weight ~w_i~
+      - A maximum weight ~W~
+    - Output:
+      - A vector ~X = (x_1, x_2, ... x_n)~ such that
+        - ~0 <= x_i <= 1~
+        - The total value ~Sum(map(mul, zip(X, Value)))~ is maximized
+        - The total weight is not too heavy -- ~Sum(map(mul, zip(X, Weight))) <= W~
+    - Solution:
+      - Make greedy choices with respect to values per unit of weight
+        - The proof is long and involves proving that the value for
+          another combination has to have less or equal value via
+          manipulating sums
+    - this isn't actually the "knapsack problem" that is typically
+      found, this is a linear relaxation of said problem. We'll cover
+      the real knapsack problem maybe in chapter 5? [says the notes,
+      but I don't see them in the notes].
+
+* [[Chapter-4---GreedyAlgorithms---Part-3.1---MST.pdf]]
+  - Minimum spanning tree!
+  - given a graph ~G = (V, E)~ that is undirected and connected, each
+    edge ~{u,v}~ has a weight ~wt(u,v)~.
+    - We want to find a subgraph ~G'~ that is connected and has a
+      minimum sum of all weights ~Sum(map(wt, E))~
+      - Trivially, it must be a tree [connected, but no cycles]
+      - They give a few examples
+  - Fundamental lemma:
+    - Given ~G~, a weighted, undirected, connected graph, and two
+      subsets of the nodes ~A~ and ~B~ where there is some minimum
+      edge connecting ~A~ and ~B~, then that edge must be in the MST.
+    - Proof in notes
   - Sidetrack into Union-Find data structures, also known as
     disjoint-set data structures:
   - It's just a data strucutre of sets that have two operations:
@@ -368,7 +408,5 @@ clean.
   - Consider the shortest path from i to j, if the path has an
     interior vertex, it's the path from one node to another, and this
     can be framed dynamically
-
-
 
 * [[./Chapter-5---Part-6---FinalRemark.pdf]]
